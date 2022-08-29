@@ -1,0 +1,29 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'books/list', user: @user,book: @book %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table table-hover table-inverse">
+
+        <thead>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </thead>
+          <% @books.each do |f| %>
+        <tr>
+          <td>
+            <%= link_to user_path(f.user.id) do %>
+            <%= image_tag f.user.get_profile_image(100,100) %>
+            <% end %>
+          </td>
+          <td><%= link_to f.title, book_path(f.id) %></td>
+          <td><%= link_to f.body, book_path(f.id) %></td>
+        </tr>
+      <% end %>
+
+      </table>
+    </div>
+  </dev>
+</div>

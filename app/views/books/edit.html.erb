@@ -1,0 +1,28 @@
+<div>
+  <% if @book.errors.any? %>
+  <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+  <% @book.errors.full_messages.each do |message| %>
+    <ul>
+    <li><%= message %></li>
+    </ul>
+  <% end %>
+  <% end %>
+</div>
+
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Book</h1>
+    <%= form_with model: @book do |f| %>
+  <div class="form-group">
+    <label for="book_title">Title</label><br>
+    <%= f.text_field :title, autofocus: true, id:"inputText", placeholder:""%>
+  </div>
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label><br>
+    <%= f.text_field :body, autofocus: true, id:"inputText", placeholder:""%>
+  </div>
+    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+</form>
+  		<%= link_to "Show" , book_path %> |
+  		<%= link_to "Back" , books_path %>
+  	<% end %>
+  </div>
